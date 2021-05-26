@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/discoverFragment">
+
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.dineshworkspace.datingapp.discover.DiscoverFragment"
+        android:label="DiscoverFragment"
+        tools:layout="@layout/fragment_discover" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.dineshworkspace.datingapp.notes.NotesFragment"
+        android:label="NotesFragment"
+        tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.dineshworkspace.datingapp.matches.MatchesFragment"
+        android:label="MatchesFragment"
+        tools:layout="@layout/fragment_matches" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dineshworkspace.datingapp.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
