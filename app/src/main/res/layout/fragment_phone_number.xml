@@ -31,15 +31,15 @@
         android:layout_width="60dp"
         android:layout_height="@dimen/rounded_et_height"
         android:layout_marginTop="10dp"
+        android:background="@drawable/bg_rounded_edittext"
+        android:enabled="false"
+        android:gravity="center"
+        android:maxLength="3"
+        android:maxLines="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:maxLines="1"
-        android:maxLength="3"
-        android:gravity="center"
-        android:enabled="false"
-        android:textColor="@color/black"
         android:text="@string/india_country_code"
-        android:background="@drawable/bg_rounded_edittext"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_enter_num" />
 
@@ -49,12 +49,14 @@
         android:layout_height="@dimen/rounded_et_height"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:maxLines="1"
-        android:maxLength="10"
         android:autofillHints="phoneNumberDevice"
         android:background="@drawable/bg_rounded_edittext"
+        android:imeOptions="actionDone"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
         app:layout_constraintStart_toEndOf="@id/et_country_code"
         app:layout_constraintTop_toBottomOf="@id/tv_enter_num" />
@@ -77,5 +79,13 @@
         app:cornerRadius="@dimen/action_btn_corner_radius"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_country_code" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_input_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="bnt_continue,tv_enter_num,tv_get_otp,et_country_code,et_ph_num" />
+
+    <include layout="@layout/layout_loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

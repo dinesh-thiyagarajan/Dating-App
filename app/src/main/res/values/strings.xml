@@ -8,4 +8,5 @@
     <string name="enter_ph_no">Enter Your <br/> Phone Number</string>
     <string name="hint_continue">Continue</string>
     <string name="india_country_code">+91</string>
+    <string name="err_phone_number">Please enter a valid Phone Number</string>
 </resources>

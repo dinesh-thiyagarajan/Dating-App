@@ -27,12 +27,20 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/phoneNumberFragment"
-        android:name="com.dineshworkspace.datingapp.phoneVerification.PhoneNumberFragment"
+        android:name="com.dineshworkspace.datingapp.phoneVerification.ui.PhoneNumberFragment"
         android:label="PhoneNumberFragment"
-        tools:layout="@layout/fragment_phone_number"/>
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_OTPVerificationFragment"
+            app:destination="@id/OTPVerificationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/OTPVerificationFragment"
         tools:layout="@layout/fragment_otp_verification"
-        android:name="com.dineshworkspace.datingapp.phoneVerification.OTPVerificationFragment"
-        android:label="OTPVerificationFragment" />
+        android:name="com.dineshworkspace.datingapp.phoneVerification.ui.OTPVerificationFragment"
+        android:label="OTPVerificationFragment" >
+        <action
+            android:id="@+id/action_OTPVerificationFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
 </navigation>

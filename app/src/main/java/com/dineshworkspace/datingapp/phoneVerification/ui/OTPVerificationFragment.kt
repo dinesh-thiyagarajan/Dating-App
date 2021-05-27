@@ -1,4 +1,4 @@
-package com.dineshworkspace.datingapp.phoneVerification
+package com.dineshworkspace.datingapp.phoneVerification.ui
 
 import com.dineshworkspace.datingapp.R
 import com.dineshworkspace.datingapp.base.BaseFragment
