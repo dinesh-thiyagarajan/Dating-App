@@ -9,6 +9,7 @@ object AppConstants {
 
     /*API Keys*/
     const val API_KEY_NUMBER = "number"
+    const val API_KEY_OTP = "otp"
 
     /*Bundles*/
     const val BUNDLE_PHONE_NUMBER = "bundle_phone_number"

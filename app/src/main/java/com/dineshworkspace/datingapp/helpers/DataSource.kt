@@ -18,6 +18,13 @@ class DataSource @Inject constructor(
         )
     }
 
+    suspend fun validateOtp(map: Map<String, String>): BaseResponse<PhoneNumberLoginResponse> {
+        return getResponse(
+            request = { apiService.validateOtp(map) },
+            defaultErrorMessage = "Error Login"
+        )
+    }
+
     private suspend fun <T> getResponse(
         request: suspend () -> Response<T>,
         defaultErrorMessage: String

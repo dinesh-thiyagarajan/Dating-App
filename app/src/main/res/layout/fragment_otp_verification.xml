@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_phone_number" />
 
     <EditText
-        android:id="@+id/et_country_code"
+        android:id="@+id/et_otp"
         android:layout_width="100dp"
         android:layout_height="@dimen/rounded_et_height"
         android:layout_marginTop="10dp"
@@ -55,7 +55,7 @@
         android:textColor="@color/black"
         app:cornerRadius="@dimen/action_btn_corner_radius"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_country_code" />
+        app:layout_constraintTop_toBottomOf="@id/et_otp" />
 
     <TextView
         android:id="@+id/tv_timer"

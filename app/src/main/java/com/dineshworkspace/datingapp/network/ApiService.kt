@@ -13,4 +13,9 @@ interface ApiService {
         @QueryMap params: Map<String, String>
     ): Response<PhoneNumberLoginResponse>
 
+    @POST(AppConstants.END_POINT_VERIFY_OTP)
+    suspend fun validateOtp(
+        @QueryMap params: Map<String, String>
+    ): Response<PhoneNumberLoginResponse>
+
 }

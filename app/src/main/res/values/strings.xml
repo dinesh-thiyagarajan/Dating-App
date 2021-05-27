@@ -11,4 +11,5 @@
     <string name="india_country_code">+91</string>
     <string name="err_phone_number">Please enter a valid Phone Number</string>
     <string name="timer">00:%s</string>
+    <string name="err_otp">Please enter a valid OTP</string>
 </resources>

@@ -6,7 +6,7 @@ import com.dineshworkspace.datingapp.helpers.ErrorUtil
 import com.dineshworkspace.datingapp.network.ApiHelper
 import com.dineshworkspace.datingapp.network.ApiHelperImpl
 import com.dineshworkspace.datingapp.network.ApiService
-import com.dineshworkspace.datingapp.phoneVerification.PhoneNumberRepository
+import com.dineshworkspace.datingapp.phoneVerification.PhoneNumberValidationRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -70,8 +70,8 @@ class AppModule {
     @[Provides Singleton]
     fun providesPhoneNumberRepository(
         dataSource: DataSource
-    ): PhoneNumberRepository {
-        return PhoneNumberRepository(dataSource = dataSource)
+    ): PhoneNumberValidationRepository {
+        return PhoneNumberValidationRepository(dataSource = dataSource)
     }
 
 

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class PhoneNumberRepository @Inject constructor(private val dataSource: DataSource) {
+class PhoneNumberValidationRepository @Inject constructor(private val dataSource: DataSource) {
 
     suspend fun loginWithPhoneNumber(phoneNumber: String): Flow<BaseResponse<PhoneNumberLoginResponse>?> {
         return flow {
@@ -19,6 +19,18 @@ class PhoneNumberRepository @Inject constructor(private val dataSource: DataSour
                 AppConstants.API_KEY_NUMBER to phoneNumber,
             )
             val result = dataSource.loginUsingPhoneNumber(map)
+            emit(result)
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun validateOtp(number: String, otp: String): Flow<BaseResponse<PhoneNumberLoginResponse>?> {
+        return flow {
+            emit(BaseResponse.loading(null))
+            val map = mapOf(
+                AppConstants.API_KEY_NUMBER to number,
+                AppConstants.API_KEY_OTP to otp,
+            )
+            val result = dataSource.validateOtp(map)
             emit(result)
         }.flowOn(Dispatchers.IO)
     }

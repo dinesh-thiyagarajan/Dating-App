@@ -21,7 +21,6 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
 
     private val phoneNumVerificationViewModel: PhoneNumberVerificationViewModel by activityViewModels()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -87,6 +86,7 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
             R.id.action_phoneNumberFragment_to_OTPVerificationFragment,
             bundle
         )
+        phoneNumVerificationViewModel.loginResponse.postValue(null)
     }
 
     private fun showLoading() {
