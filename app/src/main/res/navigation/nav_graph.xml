@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/discoverFragment">
+    app:startDestination="@id/phoneNumberFragment">
 
     <fragment
         android:id="@+id/discoverFragment"
@@ -25,4 +25,14 @@
         android:name="com.dineshworkspace.datingapp.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.dineshworkspace.datingapp.phoneVerification.PhoneNumberFragment"
+        android:label="PhoneNumberFragment"
+        tools:layout="@layout/fragment_phone_number"/>
+    <fragment
+        android:id="@+id/OTPVerificationFragment"
+        tools:layout="@layout/fragment_otp_verification"
+        android:name="com.dineshworkspace.datingapp.phoneVerification.OTPVerificationFragment"
+        android:label="OTPVerificationFragment" />
 </navigation>
