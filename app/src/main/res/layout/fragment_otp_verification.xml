@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="20dp">
+
+    <TextView
+        android:id="@+id/tv_phone_number"
+        style="@style/SubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        app:drawableEndCompat="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:text="@string/india_country_code" />
+
+    <TextView
+        android:id="@+id/tv_enter_otp"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/enter_otp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone_number" />
+
+    <EditText
+        android:id="@+id/et_country_code"
+        android:layout_width="100dp"
+        android:layout_height="@dimen/rounded_et_height"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_rounded_edittext"
+        android:gravity="center"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_enter_otp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bnt_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/action_btn_bg"
+        android:text="@string/hint_continue"
+        android:textColor="@color/black"
+        app:cornerRadius="@dimen/action_btn_corner_radius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_country_code" />
+
+    <TextView
+        android:id="@+id/tv_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/bnt_continue"
+        app:layout_constraintStart_toEndOf="@id/bnt_continue"
+        app:layout_constraintTop_toTopOf="@+id/bnt_continue"
+        tools:text="@tools:sample/us_zipcodes" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_input_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="bnt_continue,tv_enter_num,tv_get_otp,et_country_code,et_ph_num" />
+
+    <include layout="@layout/layout_loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

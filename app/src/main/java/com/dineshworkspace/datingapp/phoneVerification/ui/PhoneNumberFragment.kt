@@ -66,9 +66,9 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
         layout_loading.visibility = View.GONE
         group_input_items.visibility = View.VISIBLE
         if (loginResponse!!.loginStatus) {
-            showOtpFragment()
-        } else {
             showDiscoverFragment()
+        } else {
+            showOtpFragment()
         }
     }
 
