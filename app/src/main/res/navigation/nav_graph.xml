@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_phoneNumberFragment_to_OTPVerificationFragment"
             app:destination="@id/OTPVerificationFragment" />
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
     </fragment>
     <fragment
         android:id="@+id/OTPVerificationFragment"

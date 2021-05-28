@@ -2,7 +2,6 @@ package com.dineshworkspace.datingapp
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -27,7 +26,7 @@ class LandingActivity : AppCompatActivity() {
     }
 
     fun showHideBottomNav() {
-        if (SharedPrefHelper.getBoolean(AppConstants.IS_PHONE_VALIDATED, false)) {
+        if (SharedPrefHelper.getBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, false)) {
             bottom_nav.visibility = View.VISIBLE
         } else {
             bottom_nav.visibility = View.GONE

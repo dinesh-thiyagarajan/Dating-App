@@ -3,6 +3,7 @@ package com.dineshworkspace.datingapp.phoneVerification.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.dineshworkspace.datingapp.base.BaseViewModel
+import com.dineshworkspace.datingapp.base.OtpVerificationResponse
 import com.dineshworkspace.datingapp.base.PhoneNumberLoginResponse
 import com.dineshworkspace.datingapp.dataModels.BaseResponse
 import com.dineshworkspace.datingapp.phoneVerification.PhoneNumberValidationRepository
@@ -20,7 +21,7 @@ class OtpVerificationViewModel @Inject constructor(private val phoneNumberValida
     BaseViewModel() {
 
     val time: MutableLiveData<String> = MutableLiveData()
-    val otpValidationResponse: MutableLiveData<BaseResponse<PhoneNumberLoginResponse>> =
+    val otpValidationResponse: MutableLiveData<BaseResponse<OtpVerificationResponse>> =
         MutableLiveData()
     var jobForTimer: Job? = null
 

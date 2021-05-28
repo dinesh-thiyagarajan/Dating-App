@@ -12,6 +12,7 @@ import com.dineshworkspace.datingapp.base.toast
 import com.dineshworkspace.datingapp.dataModels.BaseResponse
 import com.dineshworkspace.datingapp.dataModels.Status
 import com.dineshworkspace.datingapp.helpers.AppConstants
+import com.dineshworkspace.datingapp.helpers.SharedPrefHelper
 import com.dineshworkspace.datingapp.phoneVerification.viewModel.PhoneNumberVerificationViewModel
 import kotlinx.android.synthetic.main.fragment_phone_number.*
 import kotlinx.android.synthetic.main.layout_loading.*
@@ -72,8 +73,12 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
     }
 
     private fun showDiscoverFragment() {
+        (activity as LandingActivity).showFragment(
+            R.id.action_phoneNumberFragment_to_discoverFragment,
+            null
+        )
+        SharedPrefHelper.saveBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, true)
         (activity as LandingActivity).showHideBottomNav()
-
     }
 
     private fun showOtpFragment() {

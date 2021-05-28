@@ -13,7 +13,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,6 +41,21 @@ class AppModule {
         httpClient.addInterceptor(logging)
         httpClient.callTimeout(10, TimeUnit.SECONDS)
         httpClient.connectTimeout(10, TimeUnit.SECONDS)
+
+        httpClient.networkInterceptors().add(Interceptor { chain ->
+            val requestBuilder: Request.Builder = chain.request().newBuilder()
+            requestBuilder.header(
+                AppConstants.API_HEADER_KEY_CONTENT_TYPE,
+                AppConstants.API_HEADER_VALUE_CONTENT_TYPE
+            )
+            requestBuilder.header(
+                AppConstants.API_HEADER_KEY_COOKIE,
+                AppConstants.API_HEADER_VALUE_COOKIE
+            )
+
+            chain.proceed(requestBuilder.build())
+        })
+
         return httpClient.build()
     }
 

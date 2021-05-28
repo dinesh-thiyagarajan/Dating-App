@@ -18,4 +18,12 @@ object SharedPrefHelper {
     fun getBoolean(key: String?, defaultVale: Boolean): Boolean {
         return sharedPreferences.getBoolean(key, defaultVale)
     }
+
+    fun saveString(key: String?, value: String) {
+        sharedPreferences.edit().putString(key, value).apply()
+    }
+
+    fun getString(key: String?, defaultVale: String): String? {
+        return sharedPreferences.getString(key, defaultVale)
+    }
 }

@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.dineshworkspace.datingapp.LandingActivity
 import com.dineshworkspace.datingapp.R
 import com.dineshworkspace.datingapp.base.BaseFragment
-import com.dineshworkspace.datingapp.base.PhoneNumberLoginResponse
+import com.dineshworkspace.datingapp.base.OtpVerificationResponse
 import com.dineshworkspace.datingapp.base.toast
 import com.dineshworkspace.datingapp.dataModels.BaseResponse
+import com.dineshworkspace.datingapp.dataModels.Status
 import com.dineshworkspace.datingapp.helpers.AppConstants
+import com.dineshworkspace.datingapp.helpers.SharedPrefHelper
 import com.dineshworkspace.datingapp.phoneVerification.viewModel.OtpVerificationViewModel
 import kotlinx.android.synthetic.main.fragment_otp_verification.*
+import kotlinx.android.synthetic.main.layout_loading.*
 
 
 class OTPVerificationFragment : BaseFragment(R.layout.fragment_otp_verification) {
@@ -47,8 +51,37 @@ class OTPVerificationFragment : BaseFragment(R.layout.fragment_otp_verification)
         })
     }
 
-    private fun onOtpValidationResponseReceived(it: BaseResponse<PhoneNumberLoginResponse>?) {
+    private fun onOtpValidationResponseReceived(it: BaseResponse<OtpVerificationResponse>?) {
+        when (it?.status) {
+            Status.LOADING -> showLoading()
+            Status.SUCCESS -> showSuccessScreen(it?.data)
+            Status.ERROR -> showErrorScreen(it.message)
+        }
+    }
 
+    private fun showErrorScreen(message: String?) {
+        layout_loading.visibility = View.GONE
+        group_input_items.visibility = View.VISIBLE
+        message?.let {
+            requireContext().toast(it)
+        }
+    }
+
+    private fun showSuccessScreen(otpVerificationResponse: OtpVerificationResponse?) {
+        layout_loading.visibility = View.GONE
+        otpVerificationResponse?.token?.let {
+            SharedPrefHelper.saveString(AppConstants.PREF_API_TOKEN, it)
+        }
+        (activity as LandingActivity).showFragment(
+            R.id.action_OTPVerificationFragment_to_discoverFragment,
+            null
+        )
+        SharedPrefHelper.saveBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, true)
+        (activity as LandingActivity).showHideBottomNav()
+    }
+
+    private fun showLoading() {
+        layout_loading.visibility = View.VISIBLE
     }
 
     private fun onContinueClicked() {

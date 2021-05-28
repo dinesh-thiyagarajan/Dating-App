@@ -1,6 +1,8 @@
 package com.dineshworkspace.datingapp.helpers
 
+import com.dineshworkspace.datingapp.base.OtpVerificationResponse
 import com.dineshworkspace.datingapp.base.PhoneNumberLoginResponse
+import com.dineshworkspace.datingapp.base.ProfileResponse
 import com.dineshworkspace.datingapp.dataModels.BaseResponse
 import com.dineshworkspace.datingapp.network.ApiService
 import retrofit2.Response
@@ -18,10 +20,17 @@ class DataSource @Inject constructor(
         )
     }
 
-    suspend fun validateOtp(map: Map<String, String>): BaseResponse<PhoneNumberLoginResponse> {
+    suspend fun validateOtp(map: Map<String, String>): BaseResponse<OtpVerificationResponse> {
         return getResponse(
             request = { apiService.validateOtp(map) },
-            defaultErrorMessage = "Error Login"
+            defaultErrorMessage = "Error Validating OTP"
+        )
+    }
+
+    suspend fun fetchProfileList(headerMap: Map<String, String>): BaseResponse<ProfileResponse> {
+        return getResponse(
+            request = { apiService.fetchProfileList(headers = headerMap) },
+            defaultErrorMessage = "Error Fetching Profile List"
         )
     }
 
