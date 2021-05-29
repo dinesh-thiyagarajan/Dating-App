@@ -8,6 +8,7 @@ import com.dineshworkspace.datingapp.LandingActivity
 import com.dineshworkspace.datingapp.R
 import com.dineshworkspace.datingapp.base.BaseFragment
 import com.dineshworkspace.datingapp.base.OtpVerificationResponse
+import com.dineshworkspace.datingapp.base.hideKeyboard
 import com.dineshworkspace.datingapp.base.toast
 import com.dineshworkspace.datingapp.dataModels.BaseResponse
 import com.dineshworkspace.datingapp.dataModels.Status
@@ -38,6 +39,7 @@ class OTPVerificationFragment : BaseFragment(R.layout.fragment_otp_verification)
         })
 
         bnt_continue.setOnClickListener {
+            requireContext().hideKeyboard(view)
             onContinueClicked()
         }
 
@@ -76,12 +78,11 @@ class OTPVerificationFragment : BaseFragment(R.layout.fragment_otp_verification)
             R.id.action_OTPVerificationFragment_to_discoverFragment,
             null
         )
-        SharedPrefHelper.saveBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, true)
-        (activity as LandingActivity).showHideBottomNav()
     }
 
     private fun showLoading() {
         layout_loading.visibility = View.VISIBLE
+        group_input_items.visibility = View.GONE
     }
 
     private fun onContinueClicked() {

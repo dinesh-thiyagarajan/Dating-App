@@ -65,7 +65,9 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
     private fun showSuccessScreen(loginResponse: PhoneNumberLoginResponse?) {
         layout_loading.visibility = View.GONE
         group_input_items.visibility = View.VISIBLE
-        if (loginResponse!!.loginStatus) {
+        if (loginResponse!!.loginStatus
+            && !SharedPrefHelper.getString(AppConstants.PREF_API_TOKEN, "").isNullOrEmpty()
+        ) {
             showDiscoverFragment()
         } else {
             showOtpFragment()
@@ -77,8 +79,6 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
             R.id.action_phoneNumberFragment_to_discoverFragment,
             null
         )
-        SharedPrefHelper.saveBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, true)
-        (activity as LandingActivity).showHideBottomNav()
     }
 
     private fun showOtpFragment() {
@@ -89,7 +89,7 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
         )
         (activity as LandingActivity).showFragment(
             R.id.action_phoneNumberFragment_to_OTPVerificationFragment,
-            bundle
+            bundle,
         )
         phoneNumVerificationViewModel.loginResponse.postValue(null)
     }

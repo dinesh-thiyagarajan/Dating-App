@@ -7,7 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dineshworkspace.datingapp.helpers.AppConstants
-import com.dineshworkspace.datingapp.helpers.SharedPrefHelper
+import com.dineshworkspace.datingapp.phoneVerification.ui.PhoneNumberFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,18 +22,25 @@ class LandingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         NavigationUI.setupWithNavController(bottom_nav, navController)
-        showHideBottomNav()
-    }
 
-    fun showHideBottomNav() {
-        if (SharedPrefHelper.getBoolean(AppConstants.PREF_IS_PHONE_VALIDATED, false)) {
-            bottom_nav.visibility = View.VISIBLE
-        } else {
-            bottom_nav.visibility = View.GONE
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (AppConstants.HIDE_BOTTOM_NAV_SCREENS.contains(destination.id)
+                || destination.label!! == PhoneNumberFragment::class.java.simpleName
+            ) {
+                updateBottomNavVisibility(View.GONE)
+                return@addOnDestinationChangedListener
+            }
+            updateBottomNavVisibility(View.VISIBLE)
         }
     }
 
     fun showFragment(action: Int, bundle: Bundle?) {
         navController.navigate(action, bundle)
+    }
+
+    private fun updateBottomNavVisibility(bottomNavVisibility: Int) {
+        bottom_nav?.let {
+            it.visibility = bottomNavVisibility
+        }
     }
 }
