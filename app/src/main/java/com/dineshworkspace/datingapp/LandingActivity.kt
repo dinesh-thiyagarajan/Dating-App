@@ -7,7 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dineshworkspace.datingapp.helpers.AppConstants
-import com.dineshworkspace.datingapp.phoneVerification.ui.PhoneNumberFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,9 +23,7 @@ class LandingActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottom_nav, navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (AppConstants.HIDE_BOTTOM_NAV_SCREENS.contains(destination.id)
-                || destination.label!! == PhoneNumberFragment::class.java.simpleName
-            ) {
+            if (AppConstants.HIDE_BOTTOM_NAV_SCREENS.contains(destination.id)) {
                 updateBottomNavVisibility(View.GONE)
                 return@addOnDestinationChangedListener
             }

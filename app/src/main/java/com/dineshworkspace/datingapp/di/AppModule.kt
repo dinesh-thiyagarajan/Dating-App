@@ -1,5 +1,6 @@
 package com.dineshworkspace.datingapp.di
 
+import com.dineshworkspace.datingapp.discover.DiscoverRepository
 import com.dineshworkspace.datingapp.helpers.AppConstants
 import com.dineshworkspace.datingapp.helpers.DataSource
 import com.dineshworkspace.datingapp.helpers.ErrorUtil
@@ -89,6 +90,13 @@ class AppModule {
         dataSource: DataSource
     ): PhoneNumberValidationRepository {
         return PhoneNumberValidationRepository(dataSource = dataSource)
+    }
+
+    @[Provides Singleton]
+    fun providesDiscoverRepository(
+        dataSource: DataSource
+    ): DiscoverRepository {
+        return DiscoverRepository(dataSource = dataSource)
     }
 
 

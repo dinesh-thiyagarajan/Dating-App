@@ -25,10 +25,10 @@ object AppConstants {
 
     /*Shared Preferences*/
     const val SHARED_PREFERENCES_NAME = "com.dineshworkspace.datingapp"
-    const val PREF_IS_PHONE_VALIDATED = "is_phone_validated"
     const val PREF_API_TOKEN = "api_token"
 
     val HIDE_BOTTOM_NAV_SCREENS = arrayListOf(
+        R.id.phoneNumberFragment,
         R.id.OTPVerificationFragment)
 
 }

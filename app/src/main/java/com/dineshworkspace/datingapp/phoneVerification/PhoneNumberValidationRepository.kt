@@ -41,18 +41,4 @@ class PhoneNumberValidationRepository @Inject constructor(private val dataSource
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun fetchProfileList(): Flow<BaseResponse<ProfileResponse>?> {
-        return flow {
-            emit(BaseResponse.loading(null))
-            val headerMap = mapOf(
-                AppConstants.API_HEADER_KEY_AUTH to SharedPrefHelper.getString(
-                    AppConstants.API_HEADER_KEY_AUTH,
-                    ""
-                )!!,
-            )
-            val result = dataSource.fetchProfileList(headerMap = headerMap)
-            emit(result)
-        }.flowOn(Dispatchers.IO)
-    }
-
 }
