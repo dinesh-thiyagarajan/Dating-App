@@ -12,4 +12,11 @@
     <string name="err_phone_number">Please enter a valid Phone Number</string>
     <string name="timer">00:%s</string>
     <string name="err_otp">Please enter a valid OTP</string>
+
+    <!--Discover-->
+    <string name="discover_header">Notes</string>
+    <string name="discover_sub_header">Personal messages to you</string>
+    <string name="interested_hint">Interested In You</string>
+    <string name="premium_members_hint">Premium members can view all <br/>  the likes at once</string>
+    <string name="upgrade_hint">Upgrade</string>
 </resources>

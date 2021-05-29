@@ -10,5 +10,5 @@
         android:topRightRadius="@dimen/rounded_et_corner_radius" />
     <stroke
         android:width="2dip"
-        android:color="@color/light_gray" />
+        android:color="@color/very_light_gray" />
 </shape>
