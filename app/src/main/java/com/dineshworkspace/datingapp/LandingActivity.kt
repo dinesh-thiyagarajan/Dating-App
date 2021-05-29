@@ -29,6 +29,7 @@ class LandingActivity : AppCompatActivity() {
             }
             updateBottomNavVisibility(View.VISIBLE)
         }
+        updateBottomNavWithBadges()
     }
 
     fun showFragment(action: Int, bundle: Bundle?) {
@@ -39,6 +40,16 @@ class LandingActivity : AppCompatActivity() {
         bottom_nav?.let {
             it.visibility = bottomNavVisibility
         }
+    }
+
+    private fun updateBottomNavWithBadges(){
+        val notesBadge = bottom_nav.getOrCreateBadge(R.id.notesFragment)
+        notesBadge.isVisible = true
+        notesBadge.number = 9
+
+        val matchesBadge = bottom_nav.getOrCreateBadge(R.id.matchesFragment)
+        matchesBadge.isVisible = true
+        matchesBadge.number = 50
     }
 
     override fun onBackPressed() {
