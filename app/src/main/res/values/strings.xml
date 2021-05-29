@@ -19,4 +19,6 @@
     <string name="interested_hint">Interested In You</string>
     <string name="premium_members_hint">Premium members can view all <br/>  the likes at once</string>
     <string name="upgrade_hint">Upgrade</string>
+
+    <string name="tap_to_review">Tap to review %s+ notes</string>
 </resources>

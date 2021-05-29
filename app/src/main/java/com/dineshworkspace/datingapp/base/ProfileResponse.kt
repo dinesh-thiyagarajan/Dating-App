@@ -9,7 +9,7 @@ data class Invites(val profiles: ArrayList<Profile>) {
 
 }
 
-data class Profile(val generalInformation: GeneralInformation) {
+data class Profile(val generalInformation: GeneralInformation, val name: String, val image:Int) {
 
 }
 

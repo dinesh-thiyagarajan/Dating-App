@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dineshworkspace.datingapp.helpers.AppConstants
+import com.dineshworkspace.datingapp.helpers.SharedPrefHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
