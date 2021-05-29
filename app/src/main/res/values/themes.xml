@@ -61,4 +61,16 @@
         <item name="android:fontFamily">@font/gilroy_semibold</item>
     </style>
 
+    <style name="UserInput" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ProgressLoading">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="Timer" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
