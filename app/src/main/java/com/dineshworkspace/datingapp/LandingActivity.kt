@@ -7,7 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dineshworkspace.datingapp.helpers.AppConstants
-import com.dineshworkspace.datingapp.helpers.SharedPrefHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -39,6 +38,12 @@ class LandingActivity : AppCompatActivity() {
     private fun updateBottomNavVisibility(bottomNavVisibility: Int) {
         bottom_nav?.let {
             it.visibility = bottomNavVisibility
+        }
+    }
+
+    override fun onBackPressed() {
+        if (navController.popBackStack().not()) {
+            finish()
         }
     }
 }

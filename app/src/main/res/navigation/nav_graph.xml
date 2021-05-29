@@ -43,6 +43,9 @@
         android:name="com.dineshworkspace.datingapp.phoneVerification.ui.OTPVerificationFragment"
         android:label="OTPVerificationFragment" >
         <action
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true"
             android:id="@+id/action_OTPVerificationFragment_to_discoverFragment"
             app:destination="@id/discoverFragment" />
     </fragment>
