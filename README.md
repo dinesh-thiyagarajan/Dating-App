@@ -35,4 +35,4 @@
 * Initial Release VersionName "1.0"
 
 ## Acknowledgments
- * Icon used for No Signal is from http://flaticon.com
+ * Edit Icon used is from http://flaticon.com
