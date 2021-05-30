@@ -4,7 +4,7 @@
 
 * Set Up latest Android Studio and clone the Project from Github
 
-### Setup
+## Setup
 
 * Please Install Android Studio
 * Click On New -> Checkout from Version Control -> Enter the project Git URL
@@ -20,19 +20,19 @@
 
 * Once the project is build, you can click run on android studio
 
-## Note
+### Note
 
 * It can be run either in an emulator or in a Physical device depending on the availability
 * For Remote end points please refer to AppConstants and ApiHelper
 
-## Authors
+### Authors
 
 * Dinesh Thiyagarajan
   dineshkarthie@gmail.com
 
-## Version History
+### Version History
 
 * Initial Release VersionName "1.0"
 
-## Acknowledgments
+### Acknowledgments
  * Edit Icon used is from http://flaticon.com
