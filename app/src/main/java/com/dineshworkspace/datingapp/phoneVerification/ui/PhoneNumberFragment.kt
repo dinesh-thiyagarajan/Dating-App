@@ -64,7 +64,6 @@ class PhoneNumberFragment : BaseFragment(layoutId = R.layout.fragment_phone_numb
 
     private fun showSuccessScreen(loginResponse: PhoneNumberLoginResponse?) {
         layout_loading.visibility = View.GONE
-        group_input_items.visibility = View.VISIBLE
         if (loginResponse!!.loginStatus
             && !SharedPrefHelper.getString(AppConstants.PREF_API_TOKEN, "").isNullOrEmpty()
         ) {

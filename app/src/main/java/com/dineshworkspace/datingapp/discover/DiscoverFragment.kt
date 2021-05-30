@@ -67,6 +67,7 @@ class DiscoverFragment : BaseFragment(R.layout.fragment_discover) {
             val profile = it.invites.profiles[0]
             tv_profile_name.text = profile.generalInformation.firstName
             tv_tap_to_review.text = getString(R.string.tap_to_review, "50")
+
             val photo = profile.photo[0]
             Glide.with(requireContext())
                 .load(photo.photo)
