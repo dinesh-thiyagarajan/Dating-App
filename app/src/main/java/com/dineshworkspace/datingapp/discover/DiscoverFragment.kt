@@ -1,6 +1,7 @@
 package com.dineshworkspace.datingapp.discover
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -14,7 +15,6 @@ import com.dineshworkspace.datingapp.dataModels.BaseResponse
 import com.dineshworkspace.datingapp.dataModels.Status
 import com.dineshworkspace.datingapp.discover.adapter.ProfileAdapter
 import kotlinx.android.synthetic.main.fragment_discover.*
-import kotlinx.android.synthetic.main.layout_loading.*
 
 class DiscoverFragment : BaseFragment(R.layout.fragment_discover) {
 
@@ -65,15 +65,18 @@ class DiscoverFragment : BaseFragment(R.layout.fragment_discover) {
         cv_discover_data.visibility = View.VISIBLE
         profileResponse?.let {
             val profile = it.invites.profiles[0]
-            tv_profile_name.text = profile.name
-            val photo = profile.generalInformation.photo[0]
+            tv_profile_name.text = profile.generalInformation.firstName
+            tv_tap_to_review.text = getString(R.string.tap_to_review, "50")
+            val photo = profile.photo[0]
             Glide.with(requireContext())
                 .load(photo.photo)
                 .placeholder(R.drawable.discover_grl)
                 .into(iv_discover_main)
 
             it.likes?.let { likes ->
+                profileAdapter.canSeeProfile = likes.canSeeProfile
                 profileAdapter.submitList(likes.profiles)
+
             }
         }
     }

@@ -11,14 +11,14 @@ data class Invites(
 
 }
 
-data class Profile(val generalInformation: GeneralInformation, val name: String) {
+data class Profile( @SerializedName("general_information") val generalInformation: GeneralInformation,
+                    @SerializedName("photos") val photo: ArrayList<Photo>) {
 
 }
 
 data class GeneralInformation(
     @SerializedName("date_of_birth") val dateOfBirth: String,
     @SerializedName("first_name") val firstName: String,
-    @SerializedName("photos") val photo: ArrayList<Photo>,
     val age: Int
 )
 
